@@ -47,8 +47,8 @@ SSD1306_SETSTARTLINE = 0x40
 SSD1306_MEMORYMODE = 0x20
 SSD1306_COLUMNADDR = 0x21
 SSD1306_PAGEADDR = 0x22
-SSD1306_COMSCANINC = 0xC8
-SSD1306_COMSCANDEC = 0xC0
+SSD1306_COMSCANINC = 0xC0
+SSD1306_COMSCANDEC = 0xC8
 SSD1306_SEGREMAP = 0xA0
 SSD1306_CHARGEPUMP = 0x8D
 SSD1306_EXTERNALVCC = 0x1
@@ -304,8 +304,8 @@ class SSD1306_128_32(SSD1306Base):
             self.command(0x14)
         self.command(SSD1306_MEMORYMODE)                    # 0x20
         self.command(0x00)                                  # 0x0 act like ks0108
-        self.command(SSD1306_SEGREMAP | 0x1)
-        self.command(SSD1306_COMSCANDEC)
+        self.command(SSD1306_SEGREMAP)
+        self.command(SSD1306_COMSCANINC)
         self.command(SSD1306_SETCOMPINS)                    # 0xDA
         self.command(0x02)
         self.command(SSD1306_SETCONTRAST)                   # 0x81
